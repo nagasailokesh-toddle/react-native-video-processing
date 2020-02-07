@@ -326,17 +326,17 @@
 
     if(transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0) {
         // portrait, home button at bottom (upright)
-        if( (transform.tx == 0) && (transform.ty == 0) ) {
+        // if( (transform.tx == 0) && (transform.ty == 0) ) {
             transform.tx = videoTrack.naturalSize.height;
             transform.ty = 0;
-        }
+        // }
     }
     else if(transform.a == 0 && transform.b == -1.0 && transform.c == 1.0 && transform.d == 0) {
         // portrait, home button at top (upside down)
-        if( (transform.tx == 0) && (transform.ty == 0) ) {
+        // if( (transform.tx == 0) && (transform.ty == 0) ) {
             transform.tx = 0;
             transform.ty = videoTrack.naturalSize.width;
-        }
+        // }
     }
     else if(transform.a == 1.0 && transform.b == 0 && transform.c == 0 && transform.d == 1.0) {
         // landscape, home button on right
@@ -344,10 +344,10 @@
     }
     else if(transform.a == -1.0 && transform.b == 0 && transform.c == 0 && transform.d == -1.0) {
         // landscape, home button on left
-        if( (transform.tx == 0) && (transform.ty == 0) ) {
+        // if( (transform.tx == 0) && (transform.ty == 0) ) {
             transform.tx = videoTrack.naturalSize.width;
             transform.ty = videoTrack.naturalSize.height;
-        }
+        // }
     }
     ///////
     videoComposition.renderSize = naturalSize;
