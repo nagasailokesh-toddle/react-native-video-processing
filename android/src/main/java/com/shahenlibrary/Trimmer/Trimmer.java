@@ -321,16 +321,16 @@ public class Trimmer {
       int duration = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_DURATION));
       int width = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
       int height = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
-      int orientation = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION));
+      //int orientation = Integer.parseInt(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION));
       // METADATA_KEY_FRAMERATE returns a float or int or might not exist
       Integer frameRate = VideoEdit.getIntFromString(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_FRAMERATE));
       // METADATA_KEY_VARIANT_BITRATE returns a int or might not exist
       Integer bitrate = VideoEdit.getIntFromString(mmr.extractMetadata(FFmpegMediaMetadataRetriever.METADATA_KEY_VARIANT_BITRATE));
-      if (orientation == 90 || orientation == 270) {
+      /*if (orientation == 90 || orientation == 270) {
         width = width + height;
         height = width - height;
         width = width - height;
-      }
+      }*/
 
       WritableMap event = Arguments.createMap();
       WritableMap size = Arguments.createMap();
@@ -340,7 +340,7 @@ public class Trimmer {
 
       event.putMap(Events.SIZE, size);
       event.putInt(Events.DURATION, duration / 1000);
-      event.putInt(Events.ORIENTATION, orientation);
+      //event.putInt(Events.ORIENTATION, orientation);
       if (frameRate != null) {
         event.putInt(Events.FRAMERATE, frameRate);
       } else {
