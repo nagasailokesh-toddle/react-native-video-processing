@@ -341,6 +341,7 @@ public class Trimmer {
       event.putMap(Events.SIZE, size);
       event.putInt(Events.DURATION, duration / 1000);
       //event.putInt(Events.ORIENTATION, orientation);
+      event.putInt(Events.ORIENTATION, 0);
       if (frameRate != null) {
         event.putInt(Events.FRAMERATE, frameRate);
       } else {
