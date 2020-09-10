@@ -526,7 +526,7 @@ public class Trimmer {
     UUID uuid = UUID.randomUUID();
     String imageName = uuid.toString() + "-screenshot";
 
-    File cacheDir = ctx.getCacheDir();
+    File cacheDir = ctx.getDataDir();
     File tempFile = null;
     try {
       tempFile = File.createTempFile(imageName, "." + extension, cacheDir);
