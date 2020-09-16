@@ -526,10 +526,12 @@ public class Trimmer {
     UUID uuid = UUID.randomUUID();
     String imageName = uuid.toString() + "-screenshot";
 
-    File cacheDir = ctx.getDataDir();
+    String cacheDir = ctx.getApplicationInfo().dataDir;
     File tempFile = null;
     try {
-      tempFile = File.createTempFile(imageName, "." + extension, cacheDir);
+      //tempFile = File.createTempFile(imageName, "." + extension, cacheDir);
+      tempFile = new File(cacheDir + File.separator + imageName, "." + extension);
+      tempFile.createNewFile();
     } catch( IOException e ) {
       promise.reject("Failed to create temp file", e.toString());
       return null;
