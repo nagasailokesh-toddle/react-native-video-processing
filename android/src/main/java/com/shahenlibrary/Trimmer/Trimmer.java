@@ -531,7 +531,7 @@ public class Trimmer {
     try {
       //tempFile = File.createTempFile(imageName, "." + extension, cacheDir);
       tempFile = new File(cacheDir + File.separator + imageName, "." + extension);
-      tempFile.createNewFile();
+      //tempFile.createNewFile();
     } catch( IOException e ) {
       promise.reject("Failed to create temp file", e.toString());
       return null;
