@@ -529,10 +529,10 @@ public class Trimmer {
     String cacheDir = ctx.getApplicationInfo().dataDir;
     File tempFile = null;
     try {
-      //tempFile = File.createTempFile(imageName, "." + extension, cacheDir);
-      tempFile = new File(cacheDir + File.separator + imageName, "." + extension);
+      tempFile = File.createTempFile(imageName, "." + extension, new File(cacheDir));
+//       tempFile = new File(cacheDir + File.separator + imageName, "." + extension);
       //tempFile.createNewFile();
-    } catch( IOException e ) {
+    } catch(Exception e ) {
       promise.reject("Failed to create temp file", e.toString());
       return null;
     }
