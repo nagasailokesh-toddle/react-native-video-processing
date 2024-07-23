@@ -375,7 +375,11 @@ public class Trimmer {
       videoMetadata.putInt("bitrate", bitrate);
       return videoMetadata;
     } finally {
-      retriever.release();
+        try {
+          retriever.release();
+        } catch (IOException ex) {
+        // handle the exception here
+        }    
     }
   }
 
